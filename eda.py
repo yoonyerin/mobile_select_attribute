@@ -203,6 +203,7 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
         values=selected_attr_values
         names=chosen
         group_len=len(keys)
+        #names.append("count")
         
         X_axis = np.arange(len(selected_attr_keys))
         X=[str(i) for  i in selected_attr_keys]
@@ -223,13 +224,14 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     for i in extracted_group.index:
          selected_vector.append(list(i))
     selected_vector=pd.DataFrame(selected_vector, columns=names)
-    print(selected_vector.head())
+    # print(selected_vector.head())
     cnt=selected_vector.sum()
     print(cnt)
     for index, i in enumerate(cnt):
         if i==selected_vector.shape[0] or i==0:
             print(names[index])
-        
+    print(extracted_group.shape)
+    # print(selected_vector.head())    
         
     # print(selected_vector.head())
     # one=[1]*selected_vector.shape[1]
@@ -249,9 +251,38 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     
     #=keys[len(extracted_attrs)]
     
-    extracted_group.to_csv(f"{group_folder}/{fix}_group_number.csv")
+    label_list=[]
+    for row in range(selected_vector.shape[0]):
+        gan_label=""
+        # print(selected_vector.iloc[row])
+        for i in selected_vector.iloc[row]:
+            # print(f"row for: {i}")
+            gan_label+=str(i)
+        label_list.append(gan_label)
+    selected_vector["onehot"]=pd.Series(label_list)
+    
+    selected_vector["count"]=pd.Series(values)
+    
+    selected_vector.to_csv(f"{group_folder}/{fix}_group_number_2.csv")
     
     print(len(extracted_attrs))
+    
+    
+    # label_list=[]
+    # for row in range(extracted_group.shape[0]):
+    #     gan_label=""
+    #     # print(selected_vector.iloc[row])
+    #     for i in extracted_group.iloc[row]:
+    #         # print(f"row for: {i}")
+    #         gan_label+=str(i)
+    #     label_list.append(gan_label)
+    # extracted_group["onehot"]=pd.Series(label_list)
+    
+    # extracted_group.to_csv(f"{group_folder}/{fix}_group_number_2.csv")
+    
+    # print(len(extracted_attrs))
+    
+    
     
     
     colors=[]
@@ -265,6 +296,8 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     X_axis=X_axis[:limit]
     values=values[:limit]
     X=X[:limit]      
+    
+    print(selected_vector.shape)
 
            
     #plot group number       
