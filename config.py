@@ -75,11 +75,11 @@ hair_priority={"Wearing_Lipstick":[0, 1, 4], "Attractive":[-1], "High_Cheekbones
 
 ## Selected attrs for fixed_attrs: "Wearing_Lipstick","Attractive", "High_Cheekbones", "Male", "Mouth_Slightly_Open", "Smiling"]
 selected_1=["Narrow_Eyes", "Straight_Hair", "Pale_Skin",  "hair_color", "Receding_Hairline", "Bald", "Oval_Face", 
-            "Double_Chin", "Bushy_Eyebrows", "5_o_Clock_Shadow", "Wavy_Hair", "Wearing_Earrings", "No_Beard", "Arched_Eyebrows", "Attractive", "Male",
+            "Double_Chin", "Bushy_Eyebrows","5_o_Clock_Shadow", "Wavy_Hair", "Wearing_Earrings", "No_Beard", "Arched_Eyebrows", "Attractive", "Male",
             "Heavy_Makeup"]
 selected_2=[ "Mouth_Slightly_Open", "Straight_Hair", "Bushy_Eyebrows", "Bangs", "5_o_Clock_Shadow", "Big_Lips", "Narrow_Eyes", 
              "Double_Chin", "Wavy_Hair", "Pointy_Nose", "Chubby", "Arched_Eyebrows", "Big_Nose", "Young", "Male", "Heavy_Makeup", "Wearing_Lipstick"]
-selected_3=["hair_color", "Young", "Straight_Hair", "Receding_Hairline", "Chubby", "Big_Lips", "5_o_Clock_Shadow", "No_Beard", "Oval_Face", "Rosy_Cheeks", "Male",
+selected_3=["hair_color", "Young", "Straight_Hair", "Receding_Hairline", "Chubby", "Big_Lips", ##"5_o_Clock_Shadow", "No_Beard", "Oval_Face", "Rosy_Cheeks", "Male",
             "Heavy_Makeup", "Wearing_Lipstick", "Mouth_Slightly_Open"]
 selected_4=["Narrow_Eyes", "Straight_Hair", "Pale_Skin", "Mouth_Slightly_Open", "hair_color", "Receding_Hairline", "Oval_Face", "Goatee", "Big_Nose",
             "Attractive", "Arched_Eyebrows", "5_o_Clock_Shadow", "No_Beard", "Heavy_Makeup", "Wearing_Lipstick"]
@@ -89,3 +89,5 @@ selected_6=["hair_color", "Straight_Hair", "Big_Lips","Young",
             "Bags_Under_Eyes", "No_Beard", "Male", "Attractive", "Oval_Face", "Rosy_Cheeks", "Mouth_Slightly_Open", "High_Cheekbones"]
 
 attibutes_by_fixed=[selected_1, selected_2, selected_3, selected_4, selected_5, selected_6]
+
+group_folder="/Users/yerinyoon/Documents/cubig/mobile_attribute_select/group_data"

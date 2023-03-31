@@ -248,7 +248,7 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     
     #=keys[len(extracted_attrs)]
     
-    extracted_group.to_csv(f"./{fix}_group_number.csv")
+    extracted_group.to_csv(f"{group_folder}/{fix}_group_number.csv")
     
     print(len(extracted_attrs))
     

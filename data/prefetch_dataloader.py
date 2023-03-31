@@ -5,15 +5,7 @@ from torch.utils.data import DataLoader
 
 
 class PrefetchGenerator(threading.Thread):
-    """A general prefetch generator.
-
-    Ref:
-    https://stackoverflow.com/questions/7323664/python-generator-pre-fetch
-
-    Args:
-        generator: Python generator.
-        num_prefetch_queue (int): Number of prefetch queue.
-    """
+  
 
     def __init__(self, generator, num_prefetch_queue):
         threading.Thread.__init__(self)
