@@ -179,6 +179,7 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
         #         ann_file["hair_color"]= [i for i, color in enumerate(hair_color) if ann_file[color]==1]
         ##TODO: hair color를 원핫 => 한 컬럼으로 
         #for i in hair_color:
+        print(fix)
         
         for i in hair_color:
             ann_file=ann_file.astype({i:"str" })   
@@ -266,19 +267,19 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     X=X[:limit]      
 
            
+    #plot group number       
            
-           
-    #print(extracted_attrs)        
+    # #print(extracted_attrs)        
         
-    plt.bar(X_axis - 0.4, values, 0.4, label = 'The number of the group', color=colors)
-    #plt.bar(X_axis - 0.2, y[1], 0.4, label = 'Service', color=service_color)
+    # plt.bar(X_axis - 0.4, values, 0.4, label = 'The number of the group', color=colors)
+    # #plt.bar(X_axis - 0.2, y[1], 0.4, label = 'Service', color=service_color)
 
-    plt.xticks(X_axis, X)
-    plt.xlabel("The Partition of the possible attrs")
-    plt.ylabel("The number of the group")
-    plt.title(f"{fix}: Domain Distribution/ expected num bound: {expected_num_bound}")
-    plt.legend()
-    plt.show()
+    # plt.xticks(X_axis, X)
+    # plt.xlabel("The Partition of the possible attrs")
+    # plt.ylabel("The number of the group")
+    # plt.title(f"{fix}: Domain Distribution/ expected num bound: {expected_num_bound}")
+    # plt.legend()
+    # plt.show()
 
 for i in range(len(fixed_attrs)):
     service_dataset_distribution(ATTRIBUTE_FILE, chosen=attibutes_by_fixed[i], fix=fixed_attrs[i], hair_priority=hair_priority) 
