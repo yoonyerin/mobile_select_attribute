@@ -263,7 +263,7 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     
     selected_vector["count"]=pd.Series(values)
     
-    selected_vector.to_csv(f"{group_folder}/{fix}_group_number_2.csv")
+    selected_vector.to_csv(f"{group_folder}/{fix}_group_number_2.csv", index=False)
     
     print(len(extracted_attrs))
     
