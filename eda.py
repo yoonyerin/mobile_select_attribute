@@ -249,7 +249,23 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     
     #=keys[len(extracted_attrs)]
     
+<<<<<<< HEAD
     extracted_group.to_csv(f"{group_folder}/{fix}_group_number.csv")
+=======
+    label_list=[]
+    for row in range(selected_vector.shape[0]):
+        gan_label=""
+        # print(selected_vector.iloc[row])
+        for i in selected_vector.iloc[row]:
+            # print(f"row for: {i}")
+            gan_label+=str(i)
+        label_list.append(gan_label)
+    selected_vector["onehot"]=pd.Series(label_list)
+    
+    selected_vector["count"]=pd.Series(values)
+    
+    selected_vector.to_csv(f"{group_folder}/{fix}_group_number_2.csv", index=False)
+>>>>>>> ac79d33230f07cf72543b89949ade7a30a8fd3c9
     
     print(len(extracted_attrs))
     
