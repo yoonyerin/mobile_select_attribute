@@ -15,6 +15,7 @@ label=label.drop("image_id", axis=1)
 #black 1 , blond 2 , gray 3, brown 4
 
 def proportion_chk(attr):
+    
     ann_file=pd.read_csv(attr)
     ann_file=ann_file.iloc[:, 1:]
     ann_file=ann_file.replace(-1, 0)
@@ -122,38 +123,38 @@ def corr_ranking(fixed_attr, data, columns=None):
 #### 1) exclude: 헤어 커러들 포함하지 않기
 #### 2) include: 헤어커러들 포함하기(default)
 ### 5. 그루핑 정보 시각화
-def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix=0, hair_priority=[0, 1, 2, 3, 4]):
+def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix=0):
     
     
     ann_file=pd.read_csv(attr)
     ann_file=ann_file.iloc[:, 1:]
     
-    ## len(onehot)=12
-    ###onehot: 'Nothing', Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Gray_Hair', "Blond", "Black", "Blond"
-    onehot=["0000", "1000", "0100", "0010", "0001",  "0101", "1001", "0110", "0011", "1010", "0111","1100"]
+    # hair_priority=hair_priority[fix]
+    
+    # ## len(onehot)=12
+    # ###onehot: 'Nothing', Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Gray_Hair', "Blond", "Black", "Blond"
+    # onehot=["0000", "1000", "0100", "0010", "0001",  "0101", "1001", "0110", "0011", "1010", "0111","1100"]
 
 
-    temp=[[0], [1], [2], [3], [4], [2, 4],[1, 4], [2, 3], [3, 4], [1, 3], [2, 3, 4], [1, 2]]
+    # temp=[[0], [1], [2], [3], [4], [2, 4],[1, 4], [2, 3], [3, 4], [1, 3], [2, 3, 4], [1, 2]]
     #numbering=np.zeros([6, 12])
-    numbering=[]
+    # numbering=[]
     
     #for i in range(len(hair_priority)):
     #print(hair_priority[i])
     
-    for cnt, i in enumerate(temp): #vector
-        for index in i: #possibility
-            for j in hair_priority[fix]: #priority chk
-                if j==index:
-                    numbering.append(j)
-                    continue
-            if len(numbering)!=cnt+1:
-                numbering.append(0)
+    # for cnt, i in enumerate(temp): #vector
+    #     for index in i: #possibility
+    #         for j in hair_priority: #priority chk
+    #             if j==index:
+    #                 numbering.append(j)
+    #                 continue
+    #         if len(numbering)!=cnt+1:
+    #             numbering.append(0)
+            
         
                     
-            
-            
-            
-    
+        
     ann_file=ann_file.replace(-1, 0)
     print(ann_file.shape)
     if mode=="exclued":
@@ -179,19 +180,25 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
         #         ann_file["hair_color"]= [i for i, color in enumerate(hair_color) if ann_file[color]==1]
         ##TODO: hair color를 원핫 => 한 컬럼으로 
         #for i in hair_color:
-        print(fix)
+        # print(fix)
         
-        for i in hair_color:
-            ann_file=ann_file.astype({i:"str" })   
-        ann_file["hair_color"]=ann_file["Black_Hair"]+ann_file["Blond_Hair"]\
-            +ann_file["Gray_Hair"]+ann_file["Brown_Hair"]
+        # for i in hair_color:
+        #     ann_file=ann_file.astype({i:"str" })   
+        # ann_file["hair_color"]=ann_file["Black_Hair"]+ann_file["Blond_Hair"]\
+        #     +ann_file["Gray_Hair"]+ann_file["Brown_Hair"]
         
-        for i in range(len(onehot)):
-            ann_file["hair_color"]=ann_file["hair_color"].replace(onehot[i], numbering[i])
-            # vect에 포함되지 않으면?? 
+        # for i in range(len(onehot)):
+        #     ann_file["hair_color"]=ann_file["hair_color"].replace(onehot[i], numbering[i])
         
-        ann_file.drop(hair_color,axis=1 ,inplace=True)
+        # ann_file.drop(hair_color,axis=1 ,inplace=True)
         
+        # for i in hair_priority:
+        #     if i==0: 
+        #         continue
+        #     else:
+        #         ann_file[hair_color[i-1]]=pd.Series([j==i for j in ann_file["hair_color"]])
+        # ann_file.drop(["hair_color"], axis=1, inplace=True)    
+            
         group_count=ann_file[chosen].value_counts(ascending=False)   
         selected_attr_keys=group_count.keys()
         print(type(chosen[0]))
@@ -315,7 +322,7 @@ def service_dataset_distribution(attr, mode="include", chosen=[], limit=100, fix
     # plt.show()
 
 for i in range(len(fixed_attrs)):
-    service_dataset_distribution(ATTRIBUTE_FILE, chosen=attibutes_by_fixed[i], fix=fixed_attrs[i], hair_priority=hair_priority) 
+    service_dataset_distribution(ATTRIBUTE_FILE, chosen=attibutes_by_fixed[i], fix=fixed_attrs[i]) 
     
     
     # print(ann_file[service_attribute_names].value_counts().keys()[:50])

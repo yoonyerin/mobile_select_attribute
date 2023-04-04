@@ -69,23 +69,24 @@ test_preds_fname = join(CHECKPOINT_DIR, 'test_preds.json')
 arch = 'FaceAttrMobileNetV2' # #model architecture: FaceAttrResNet FaceAttrMobileNetV2 FaceAttrResNeXt
 pt_layers = 50 # 18, 34, 50
 
+
 fixed_attrs=["Wearing_Lipstick","Attractive", "High_Cheekbones", "Male", "Mouth_Slightly_Open", "Smiling"]
-hair_priority={"Wearing_Lipstick":[0, 1, 4], "Attractive":[-1], "High_Cheekbones":[0, 3, 1, 4], "Male":[0, 4, 1], "Mouth_Slightly_Open":[0, 4, 3, 1],  "Smiling":[0, 1, 3, 4]}
+#hair_priority={"Wearing_Lipstick":[0, 1, 4], "Attractive":[-1], "High_Cheekbones":[0, 3, 1, 4], "Male":[0, 4, 1], "Mouth_Slightly_Open":[0, 4, 3, 1],  "Smiling":[0, 1, 3, 4]}
 
-
+#'Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Gray_Hair'
 ## Selected attrs for fixed_attrs: "Wearing_Lipstick","Attractive", "High_Cheekbones", "Male", "Mouth_Slightly_Open", "Smiling"]
-selected_1=["Narrow_Eyes", "Straight_Hair", "Pale_Skin",  "hair_color", "Receding_Hairline", "Bald", "Oval_Face", 
+selected_1=["Narrow_Eyes", "Straight_Hair", "Pale_Skin", "Receding_Hairline", "Bald", "Oval_Face", 
             "Double_Chin", "Bushy_Eyebrows","5_o_Clock_Shadow", "Wavy_Hair", "Wearing_Earrings", "No_Beard", "Arched_Eyebrows", "Attractive", "Male",
             "Heavy_Makeup"]
 selected_2=[ "Mouth_Slightly_Open", "Straight_Hair", "Bushy_Eyebrows", "Bangs", "5_o_Clock_Shadow", "Big_Lips", "Narrow_Eyes", 
              "Double_Chin", "Wavy_Hair", "Pointy_Nose", "Chubby", "Arched_Eyebrows", "Big_Nose", "Young", "Male", "Heavy_Makeup", "Wearing_Lipstick"]
-selected_3=["hair_color", "Young", "Straight_Hair", "Receding_Hairline", "Chubby", "Big_Lips", ##"5_o_Clock_Shadow", "No_Beard", "Oval_Face", "Rosy_Cheeks", "Male",
+selected_3=[ "Young", "Straight_Hair", "Receding_Hairline", "Chubby", "Big_Lips", ##"5_o_Clock_Shadow", "No_Beard", "Oval_Face", "Rosy_Cheeks", "Male",
             "Heavy_Makeup", "Wearing_Lipstick", "Mouth_Slightly_Open"]
-selected_4=["Narrow_Eyes", "Straight_Hair", "Pale_Skin", "hair_color", "Receding_Hairline", "Oval_Face", "Goatee", "Big_Nose",
+selected_4=["Narrow_Eyes", "Straight_Hair", "Pale_Skin", "Receding_Hairline", "Oval_Face", "Goatee", "Big_Nose",
             "Attractive", "Arched_Eyebrows", "5_o_Clock_Shadow", "No_Beard", "Heavy_Makeup", "Wearing_Lipstick"]
-selected_5=["Bald", "Pointy_Nose", "hair_color", "Young", "Straight_Hair", "Attractive", "Chubby", "Oval_Face", "Male", "Narrow_Eyes", "Rosy_Cheeks",
+selected_5=["Bald", "Pointy_Nose", "Young", "Straight_Hair", "Attractive", "Chubby", "Oval_Face", "Male", "Narrow_Eyes", "Rosy_Cheeks",
             "High_Cheekbones"]
-selected_6=["hair_color", "Straight_Hair", "Big_Lips","Young",
+selected_6=[ "Straight_Hair", "Big_Lips","Young",
             "Bags_Under_Eyes", "No_Beard", "Male", "Attractive", "Oval_Face", "Rosy_Cheeks", "Mouth_Slightly_Open", "High_Cheekbones"]
 
 attibutes_by_fixed=[selected_1, selected_2, selected_3, selected_4, selected_5, selected_6]
